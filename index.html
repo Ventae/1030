@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10월30일 과제</title>
+    <!-- 구글폰트 CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            font-family: 'Nanum Gothic Coding', cursive;
+            font-size: 10pt;
+            line-height: 180%;
+            color: #222328;
+            max-width: 1200px;
+            left: 0;
+        }
+        
+        /* 헤더 영역 */
+        header {display: flex;}
+        header div {
+            width: 300px; /* 너비 설정 */
+        }
+
+        #logo {
+            padding: 15px 0;
+            margin-left: 50px;
+            width: 60%; /* 로고 너비 설정 */
+        }
+
+
+        header ul li a {background-color: #e08a9b; display: block; padding: 10px; color: white; padding-left: 20px; text-decoration: none;}
+        header ul li a:hover {background-color: #db3d84;}
+        .subMenu {
+            display: none; /* 기본적으로 숨김 */
+            background-color: #e9f2c1; /* 서브 메뉴 배경색 */
+            z-index: 1; /* 다른 요소 위에 표시 */
+        }
+        .subMenu a {display: block; padding-left: 20px; background-color: #e9f2c1; color: black;} 
+        .subMenu a:hover {background-color: #a0c322;}
+        ul li:hover .subMenu {display: block;} /* 메인 메뉴 호버 시 서브 메뉴 표시 */
+        img {
+            max-width: 100%; /* 이미지 크기 조절 시 비율 유지 */
+            height: auto; /* 비율 유지 */
+        }
+
+        /* 슬라이드 영역 */
+        #slideArea { 
+            /* border: 3px solid gold; */
+            overflow: hidden; 
+            width: 900px; } /* 슬라이드 영역의 너비 설정 */
+        #slide { 
+            display: flex; 
+            position: relative; 
+            left: 0; 
+        }
+        #slide a { min-width: 900px; }
+        img {width: 100%; height: auto;} /* 이미지 크기 설정 */
+
+        /**********메인 영역***************/
+        main {display: flex; justify-content: flex-end;}
+        
+        section {padding-left: 30px; margin-top: 10px;
+        margin: 15px 0;}
+        section a {
+            text-decoration: none; padding: 5px;
+        } 
+        main h2 {font-size: 10pt;}
+        
+        
+        #notice > a,
+        #gallery > a {
+            background-color: #c3d680; 
+            padding: 5px;
+            display: inline-block;
+            margin-bottom: 5px; 
+            border: 1px solid black; 
+            border-radius: 10px 10px 0 0;
+        }
+        
+        section ul {list-style-position: inside; margin-top: 5px;}
+        #gallery {display: block; }
+        #gallery ul {display: flex; list-style: none;}
+        
+
+        /****************팝업*************/
+        /* 팝업 스타일 */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        #popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            transition: opacity 0.5s;
+            display:none; opacity:0;
+        }
+       
+
+
+
+        /* 하단 영역 */
+        footer {border: 1px solid black; display: flex;}
+        footer img {width: 15%; padding: 5px 10px; margin: 15px 50px;}
+        footer div ul li {display: block;}
+        footer div {
+            display: flex; flex-direction: column; border-left: 3px dotted black;}
+
+    </style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 슬라이드 기능
+    const s1 = document.getElementById('slide');           
+    const slideWidth = 900; // 슬라이드 너비
+    const toLeft = () => {
+        s1.style.transition = 'left 2s';
+        s1.style.left = `-${slideWidth}px`;
+
+        setTimeout(() => x(), 2000); // 슬라이드 이동 시간과 일치
+    }
+
+    const x = () => {
+        s1.style.left = 0;
+        s1.style.transition = 'none';
+        s1.append(s1.firstElementChild);
+    }
+
+    setInterval(toLeft, 3000); // 슬라이드 간격을 3초로 설정
+
+
+
+});/////////////////////////////
+
+</script>
+
+</head>
+<body>
+    <header>
+        <div>
+            <a href=""><img src="images/logo.jpg" alt="" id="logo"></a>
+            <ul>
+                <li>
+                    <a href="#" class="mainMenu">이용안내</a>
+                    <nav class="subMenu">
+                        <a href="#">이용방법</a>
+                        <a href="#">이용시간</a>
+                        <a href="#">이용요금</a>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#" class="mainMenu">이벤트정보</a>
+                    <nav class="subMenu">
+                        <a href="#">현장이벤트</a>
+                        <a href="#">온라인이벤트</a>
+                        <a href="#">이벤트예약</a>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#" class="mainMenu">프로그램</a>
+                    <nav class="subMenu">
+                        <a href="#">프로그램안내</a>
+                        <a href="#">온라인예약</a>
+                        <a href="#">단체예약</a>
+                    </nav>
+                </li> 
+                <li>
+                    <a href="#" class="mainMenu">고객센터</a>
+                    <nav class="subMenu">
+                        <a href="#">공지사항</a>
+                        <a href="#">자주묻는질문</a>
+                        <a href="#">자료실</a>
+                    </nav>
+                </li>
+            </ul>
+        </div>
+        <div id="slideArea">
+            <div id="slide">
+                <a href=""><img src="images/slide1.jpg" alt=""></a>
+                <a href=""><img src="images/slide2.jpg" alt=""></a>
+                <a href=""><img src="images/slide3.jpg" alt=""></a>
+            </div>
+        </div>
+    </header>
+    <main id="noti_gel">
+        <section alt="공지사항" id="notice">
+            <a href="#"><h2>공지사항</h2></a>
+            <ul>
+                <li><a href="#" data-image="images/event1.jpg">해변에서 펼쳐지는 노래공연<span>2020.03.01</span></a></li>
+                <li><a href="#" data-image="images/event2.jpg">바다의 야경과 빛공연 관람하기<span>2020.03.01</span></a></li>
+                <li><a href="#" data-image="images/event3.jpg">불꽃놀이 이벤트를 신청하세요<span>2020.03.01</span></a></li>
+                <li><a href="#" data-image="images/event4.jpg">빛축제 단체관람 안내<span>2020.03.01</span></a></li>
+            </ul>
+        </section>
+        <section alt="갤러리" id="gallery">
+            <a href="#"><h2>갤러리</h2></a>
+            <ul>
+                <li><a href="#" data-image="images/icon1.jpg"><img src="images/icon1.jpg" alt=""></a></li>
+                <li><a href="#" data-image="images/icon2.jpg"><img src="images/icon2.jpg" alt=""></a></li>
+                <li><a href="#" data-image="images/icon3.jpg"><img src="images/icon3.jpg" alt=""></a></li>
+            </ul>
+        </section>
+        <section alt="배너">
+            <img src="images/banner.jpg" alt="">
+        </section>
+    </main>
+    
+    <footer>
+        <img src="images/logo_footer.jpg" alt="">
+        <div>
+            <ul>
+                <li><a href="">하단메뉴1</a></li>
+                <li><a href="">하단메뉴2</a></li>
+                <li><a href="">하단메뉴3</a></li>
+            </ul>
+            <p>COPYRIGHTⓒ by WEBDESIGN. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+    
+    <!-- 팝업 구조 추가 -->
+    <div id="overlay" style="display:none;"></div>
+    <div id="popup" >
+        <img id="popupImage" src="images/popup.jpg" alt="" style="max-width: 100%; height: auto;">
+        <button id="closePopup">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            const closePopupButton = document.getElementById('closePopup');
+    
+            // 공지사항 및 갤러리 링크 클릭 이벤트
+            document.querySelectorAll('#notice ul li a, #gallery ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    event.preventDefault(); // 기본 링크 동작 방지
+    
+                    // 팝업 내용 설정
+                    const image = link.getAttribute('data-image');
+                    document.getElementById('popupImage').src = image; // 이미지 설정
+    
+                    // 팝업과 오버레이 표시
+                    overlay.style.display = 'block';
+                    popup.style.display = 'block';
+                    setTimeout(() => {
+                        popup.style.opacity = 1; // 서서히 나타나기
+                    }, 10);
+                });
+            });
+    
+            // 팝업 닫기
+            closePopupButton.addEventListener('click', () => {
+                popup.style.opacity = 0; // 서서히 사라지기
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                    overlay.style.display = 'none';
+                }, 500); // 애니메이션 시간과 일치
+            });
+    
+            // 오버레이 클릭 시 팝업 닫기
+            overlay.addEventListener('click', () => {
+                popup.style.opacity = 0; // 서서히 사라지기
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                    overlay.style.display = 'none';
+                }, 500); // 애니메이션 시간과 일치
+            });
+        });
+    </script>
+    
+</body>
+</html>
